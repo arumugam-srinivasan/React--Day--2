@@ -1,0 +1,69 @@
+
+
+import React from 'react';
+
+const PriceCard = ({ level, users, price, features }) => (
+  <div className="price-card">
+    <h2 className="price-card-level">{level}</h2>
+    <h3 className="price-card-price">${price}/month</h3>
+    <ul className="price-card-features">
+      {features.map((feature, index) => (
+        <li key={index} className={feature.important ? "important" : ""}>
+          {feature.text}
+          {feature.important && <span>*</span>}
+        </li>
+      ))}
+    </ul>
+    <button className="price-card-button">{users} Users</button>
+  </div>
+);
+
+const App = () => (
+  <div className="app">
+    <PriceCard
+      level="FREE"
+      users="Single User"
+      price="0"
+      features={[
+        { text: "50GB Storage" },
+        { text: "Unlimited Public Projects", important: true },
+        { text: "Community Access" },
+        { text: "Unlimited Private Projects", important: true },
+        { text: "Dedicated Phone Support", important: true },
+        { text: "Free Subdomain", important: true },
+        { text: "Monthly Status Reports", important: true },
+      ]}
+    />
+    <PriceCard
+      level="PLUS"
+      users="5 Users"
+      price="9"
+      features={[
+        { text: "50GB Storage" },
+        { text: "Unlimited Public Projects", important: true },
+        { text: "Community Access" },
+        { text: "Unlimited Private Projects", important: true },
+        { text: "Dedicated Phone Support", important: true },
+        { text: "Free Subdomain", important: true },
+        { text: "Monthly Status Reports" },
+      ]}
+    />
+    <PriceCard
+      level="PRO"
+      users="Unlimited Users"
+      price="49"
+      features={[
+        { text: "50GB Storage" },
+        { text: "Unlimited Public Projects", important: true },
+        { text: "Community Access" },
+        { text: "Unlimited Private Projects", important: true },
+        { text: "Dedicated Phone Support", important: true },
+        { text: "Free Subdomain", important: true },
+        { text: "Monthly Status Reports", important: true },
+      ]}
+    />
+  </div>
+);
+
+export default App;
+
